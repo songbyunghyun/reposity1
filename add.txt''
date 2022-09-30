@@ -1,0 +1,4 @@
+copy con "add.txt""
+cd downloads
+version 1.0
+stop
