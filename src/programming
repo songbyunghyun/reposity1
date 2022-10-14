@@ -1,0 +1,96 @@
+class Friend:
+    def __init__(self, name, phone,email,address):
+        self.name = name
+        self.phone = phone
+        self.email = email
+        self.address =address
+    def get_name(self):
+        return self.name
+    def get_phone(self):
+        return self.phone
+    def set_name(self, name):
+        self.name =name
+    def set_phone(self, phone):
+        self.phone = phone
+    def set_email(self,email):
+        self.email = email
+    def set_address(self, address):
+        self.address = address        
+    def show_info(self):
+        print("이름:", self.name)
+        print("전화번호:", self.phone)
+        print("이메일:", self.email)
+        print("주소:", self.address)
+frs = []
+frs.append(Friend("윤지민", "010-111-222", "yun@soongsil.ac.kr", "서울시 동작구"))
+while 1:
+    print("""1. 연락처 입력
+2. 연락처 출력
+3.연락처 조회
+4.연락처 수정
+5.연락처 삭제
+6.종료""")
+    menu = int(input("메뉴를 입력해주세요(1~6)"))
+    if menu == 1:
+        frdname= input(("이름을 입력"))
+        frdphone = input(("전화번호를 입력"))
+        frdemail = input(("이메일을 입력"))
+        frdaddress = input(("주소를 입력"))
+        frs.append(Friend(frdname, frdphone, frdemail, frdaddress))
+    elif menu == 2:
+        
+        for i in frs:
+            i.show_info()
+    elif menu == 3:
+        query = input("조회할 연락처를 입력하세요: ")
+        for i in frs:
+            if i.name == query or i.phone == query or i.email == query or i.address == query:
+                i.show_info()
+                break
+        else:
+            print("검색결과가 존재하지 않습니다")
+    elif menu == 4:
+        query = input("수정할 연락처를 입력하세요: ")
+        for i in frs:
+            if i.name == query or i.phone == query or i.email == query or i.address == query:
+                while True:
+                    print("1. 이름 \t\t2. 전화번호\t\t3. 이메일\t\t 4. 주소\t\t 5.수정완료")
+                    submenu = int(input("수정할 항목을 선택해주세요(1~5): "))
+                    if submenu == 1:
+                        newName = input("새 이름을 입력해주세요 : ")
+                        i.set_name(newName)
+                    elif submenu == 2:
+                        newPhone = input("새 전화번호를 입력해주세요 : ")
+                        i.set_phone(newPhone)
+                    elif submenu == 3:
+                        newEmail = input("새 이메일을 입력해주세요 : ")
+                        i.set_email(newEmail)
+                    elif submenu == 4:
+                        newAddress = input("새 주소를 입력해주세요 : ")
+                        i.set_address(newAddress)
+                    elif submenu == 5:
+                        print("수정을 완료했습니다")
+                        break
+                    else:
+                        print("1~5까지의 숫자를 입력해주세요")
+                break
+        else:
+            print("존재하지 않는 연락처입니다")
+    elif menu == 5: 
+        query = input("삭제할 연락처를 입력해주세요: ")
+        for i in frs:
+            if i.name == query or i.phone == query or i.email == query or i.address == query:
+                frs.remove(i)
+                break
+    elif menu == 6:
+        print("종료합니다")
+        break
+    else:
+        print("1~6사이의 숫자를 입력해주세요")
+
+
+
+
+
+
+
